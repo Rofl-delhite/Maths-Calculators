@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0 ,width=device-width, initial-scale=1.0">
+    <title>Multi Step Equation Calculator
+    </title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div dir="ltr" style="text-align: left" trbidi="on">
+        <!-- Styling starts-->
+        <style>
+            #calcDiv {
+                width: 450px;
+                overflow: auto;
+                background-color: #dbe4e7;
+            }
+
+            .input-group-text {
+                background-color: #0061AE;
+                color: whitesmoke;
+            }
+
+            h5,
+            h4 {
+                color: #0061AE;
+            }
+
+            p {
+                text-align: left;
+            }
+        </style>
+        <!-- styling ends -->
+
+        <!-- html code starts -->
+        <div class="container text-center my-5 border rounded" id="calcDiv">
+            <h4 class="mt-2">Multi Step Equation Calculator</h4>
+            <div class="input-group justify-content-center mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text rounded-right mb-1" id="basic-addon3">Enter values in the form of
+                        Ax+B=Cx+D</sub>
+                    </span>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Enter the value for A :
+                    </span>
+                </div>
+                <input type="text" class="form-control" id="a" placeholder="x">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Enter the value for B : </span>
+                </div>
+                <input type="text" class="form-control" id="b" placeholder="">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Enter the value for C :</span>
+                </div>
+                <input type="text" class="form-control" id="c" placeholder="x">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Enter the value for D : </span>
+                </div>
+                <input type="text" class="form-control" id="d" placeholder="">
+            </div>
+            <div class="input-group mb-3">
+                <output id="output" class="form-control"></output>
+                <div class="input-group-append">
+                    <button class="btn input-group-text text-light" id="button">Solve x</button>
+                </div>
+            </div>
+            <hr>
+            <h5>How to Use the Multi Step Equation Calculator?</h5>
+            <p>The procedure to use the multi step equation calculator is as follows:<br>
+                <strong>Step 1:</strong> Enter the coefficient and constants of the equation in the input field. <br>
+                <strong>Step 2:</strong> Now click the button “Solve x” to get the variable value. <br>
+                <strong>Step 3:</strong> Finally, the value of the variable x using multiple steps will be displayed in
+                the output field.
+            </p>
+            <h5>What is Meant by the Multi Step Equation?</h5>
+            <p>In mathematics, the multi step equation is an equation that needs more steps to solve the equation. It
+                means that to solve an equation, more than one arithmetic operations are required, such as addition,
+                subtraction, multiplication and division. Sometimes it needs an exponential operation to solve the
+                equation. For this, one should know about the order of operations.</p>
+        </div>
+
+        <!-- html code ends -->
+        <!-- scripting starts -->
+        <script>
+            document.getElementById('button').addEventListener('click', () => {
+                let a = document.getElementById("a");
+                let A = a.value;
+                let b = document.getElementById("b");
+                let B = b.value;
+                let c = document.getElementById("c");
+                let C = c.value;
+                let d = document.getElementById("d");
+                let D = d.value;
+                let Output = document.getElementById("output");
+                if (isNaN(A) || A == "" || A.includes(" ")) {
+                    a.removeAttribute("class");
+                    a.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    a.removeAttribute("class");
+                    a.setAttribute("class", "form-control");
+                }
+                if (isNaN(B) || B == "" || B.includes(" ")) {
+                    b.removeAttribute("class");
+                    b.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    b.removeAttribute("class");
+                    b.setAttribute("class", "form-control");
+                }
+                if (isNaN(C) || C == "" || C.includes(" ")) {
+                    c.removeAttribute("class");
+                    c.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    c.removeAttribute("class");
+                    c.setAttribute("class", "form-control");
+                }
+                if (isNaN(D) || D == "" || D.includes(" ")) {
+                    d.removeAttribute("class");
+                    d.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    d.removeAttribute("class");
+                    d.setAttribute("class", "form-control");
+                }
+                let x = (D - B) / ((A - C) * 1.0);
+                if (!isNaN(x)) {
+                    Output.innerText = x;
+
+                }
+                else {
+                    alert(`Have you entered all the values? Please check.`);
+                }
+            })
+        </script>
+        <!-- scripting ends -->
+    </div>
+</body>
+
+</html>

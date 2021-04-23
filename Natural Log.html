@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0 ,width=device-width, initial-scale=1.0">
+    <title>Natural Log Calculator
+    </title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div dir="ltr" style="text-align: left" trbidi="on">
+        <!-- Styling starts-->
+        <style>
+            #calcDiv {
+                width: 450px;
+                overflow: auto;
+                background-color: #dbe4e7;
+            }
+
+            .input-group-text {
+                background-color: #0061AE;
+                color: whitesmoke;
+            }
+
+            h5,
+            h4 {
+                color: #0061AE;
+            }
+
+            p,
+            li {
+                text-align: left;
+            }
+        </style>
+        <!-- styling ends -->
+
+        <!-- html code starts -->
+        <div class="container text-center my-5 border rounded" id="calcDiv">
+            <h4 class="mt-2">Natural Log Calculator</h4>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Number :
+                    </span>
+                </div>
+                <input type="text" class="form-control" id="num" placeholder="">
+            </div>
+            <div class="input-group mb-3">
+                <output id="output" class="form-control"></output>
+                <div class="input-group-append">
+                    <button class="btn input-group-text text-light" id="button">Calculate Natural Log</button>
+                </div>
+            </div>
+            <hr>
+            <h5>How to Use the Natural Log Calculator?</h5>
+            <p>TThe procedure to use the natural log calculator is as follows:<br>
+
+                <strong> Step 1:</strong> Enter the number in the input field<br>
+
+                <strong> Step 2:</strong> Now click the button “Calculate Natural Log” to get the result<br>
+
+                <strong> Step 3:</strong> Finally, the natural log value of the given number will be displayed in the
+                output field
+            </p>
+            <h5>What is Meant by the Natural Log?</h5>
+            <p>
+                In mathematics, the logarithm can be broadly classified into two types namely, natural logarithm and
+                common logarithm. The logarithm the base e is known as natural logarithm, whereas the logarithm to the
+                base 10 is called the common logarithm. The common logarithm is denoted by log and the natural logarithm
+                is denoted by ln. It represents how many times we need to use the Euler’s constant “e” in the
+                multiplication to get the desired result. The natural logarithmic function is represented by f(x) =
+                log<sub>e</sub>x
+            </p>
+        </div>
+
+        <!-- html code ends -->
+        <!-- scripting starts -->
+        <script>
+            document.getElementById('button').addEventListener('click', () => {
+                let num1 = document.getElementById("num");
+                let NUM = num1.value;
+                let Output = document.getElementById("output");
+                if (isNaN(NUM) || NUM == "" || NUM.includes(" ")) {
+                    num1.removeAttribute("class");
+                    num1.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    num1.removeAttribute("class");
+                    num1.setAttribute("class", "form-control");
+                }
+                let log = Math.log(NUM);
+                if (!isNaN(log)) {
+                    Output.innerText = log.toFixed(3);
+
+                }
+                else {
+                    alert(`Please enter a valid number.`);
+                }
+            })
+        </script>
+        <!-- scripting ends -->
+    </div>
+</body>
+
+</html>

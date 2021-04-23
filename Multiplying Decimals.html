@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0 ,width=device-width, initial-scale=1.0">
+    <title>Multiplying Decimals Calculator
+    </title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div dir="ltr" style="text-align: left" trbidi="on">
+        <!-- Styling starts-->
+        <style>
+            #calcDiv {
+                width: 450px;
+                overflow: auto;
+                background-color: #dbe4e7;
+            }
+
+            .input-group-text {
+                background-color: #0061AE;
+                color: whitesmoke;
+            }
+
+            h5,
+            h4 {
+                color: #0061AE;
+            }
+
+            p,
+            li {
+                text-align: left;
+            }
+        </style>
+        <!-- styling ends -->
+
+        <!-- html code starts -->
+        <div class="container text-center my-5 border rounded" id="calcDiv">
+            <h4 class="mt-2">Multiplying Decimals Calculator</h4>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">First Decimal :
+                    </span>
+                </div>
+                <input type="text" class="form-control" id="num1" placeholder="">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Second Decimal : </span>
+                </div>
+                <input type="text" class="form-control" id="num2" placeholder="">
+            </div>
+            <div class="input-group mb-3">
+                <output id="output" class="form-control"></output>
+                <div class="input-group-append">
+                    <button class="btn input-group-text text-light" id="button">Solve</button>
+                </div>
+            </div>
+            <hr>
+            <h5>How to Use Multiplying Decimals Calculator?</h5>
+            <p>The procedure to use the multiplying decimals calculator is as follows:<br>
+
+                <strong> Step 1:</strong> Enter two decimal values in the given input field<br>
+
+                <strong> Step 2:</strong> Click the button “Solve” to get the product value<br>
+
+                <strong> Step 3:</strong> The product will be displayed in the output field
+            </p>
+            <h5>What are Decimals?</h5>
+            <p>
+                In Mathematics, a decimal number is a number in which the whole number part and the fractional part is
+                split by a dot (.) called decimal point. The value of digits following the decimal point should be
+                smaller than the value 1. Decimals are based on the previous powers of 10. As we proceed from left to
+                right, the place value of the digit values gets divided by 10. Then the decimal place values are given
+                as tenths (1/10), hundredths (1/100), and thousandths (1/1000). For example, the decimal value of 1/100
+                is written as 0.01.
+            </p>
+            <h5>Standard Form</h5>
+            <p>
+                The standard form to represent the decimal number is as follows:<br>
+
+                Example: 2.16<br>
+
+                Here, “2” represent the whole number part<br>
+
+                “16” represent the decimal part<br>
+
+                “.” represent the decimal point<br>
+            </p>
+            <h4>Frequently Asked Questions on Multiplying Decimals Calculator</h4>
+            <hr>
+            <h5>What are the four basic operations of decimals?</h5>
+            <p>The four different basic operations of decimals are:
+            <ul>
+                <li>Addition</li>
+                <li>Subtraction</li>
+                <li>Multiplication</li>
+                <li>Division</li>
+            </ul>
+            </p>
+            <h5>What is the decimal point?</h5>
+            <p>
+                A decimal point is a point that separates the whole number part and the decimal part.<br>
+
+                Example: 4.56. Here “.” represents the decimal point.
+            </p>
+
+            <h5>How to read the number after the decimal point?</h5>
+            <p>
+                Consider an example: 45. 23618<br>
+
+                Here, the numbers after the decimal point can be read as:<br>
+
+                2 →Tenth’s<br>
+
+                3 → Hundredth’s<br>
+
+                6 → Thousandth’s<br>
+
+                1 →Ten – thousandth’s<br>
+
+                8 → Hundred -thousandth’s<br>
+            </p>
+        </div>
+
+        <!-- html code ends -->
+        <!-- scripting starts -->
+        <script>
+            document.getElementById('button').addEventListener('click', () => {
+                let num1 = document.getElementById("num1");
+                let NUM1 = num1.value;
+                let num2 = document.getElementById("num2");
+                let NUM2 = num2.value;
+                let Output = document.getElementById("output");
+                if (isNaN(NUM1) || NUM1 == "" || NUM1.includes(" ")) {
+                    num1.removeAttribute("class");
+                    num1.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    num1.removeAttribute("class");
+                    num1.setAttribute("class", "form-control");
+                }
+                if (isNaN(NUM2) || NUM2 == "" || NUM2.includes(" ")) {
+                    num2.removeAttribute("class");
+                    num2.setAttribute("class", "form-control border-danger");
+                }
+                else {
+                    num2.removeAttribute("class");
+                    num2.setAttribute("class", "form-control");
+                }
+                let mul = parseFloat(NUM1) * parseFloat(NUM2);
+                if (!isNaN(mul)) {
+                    Output.innerText = mul;
+
+                }
+                else {
+                    alert(`Have you entered all the values? Please enter decimals only.`);
+                }
+            })
+        </script>
+        <!-- scripting ends -->
+    </div>
+</body>
+
+</html>
